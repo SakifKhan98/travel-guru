@@ -38,7 +38,7 @@ const Header = () => {
               Login
             </Nav.Link>
           </Button> */}
-          <button className="loginButton">
+          <button className="ml-3  loginButton">
             <Nav.Link className="loginButtonText">Login</Nav.Link>
           </button>
         </Nav>
