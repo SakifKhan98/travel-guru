@@ -1,5 +1,5 @@
-* {
-  background-image: url(../../resources/image);
+body {
+  background-image: url("../../resources/image/home-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
