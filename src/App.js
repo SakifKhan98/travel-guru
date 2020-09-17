@@ -4,7 +4,10 @@ import "./App.css";
 import DestinationDetails from "./components/DestinationDetails/DestinationDetails";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import SpotDetails from "./components/SpotDetails/SpotDetails";
 
 function App() {
   return (
@@ -21,6 +24,12 @@ function App() {
           </Route>
           <Route path="/destination/:destinationId">
             <DestinationDetails></DestinationDetails>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/spotdetails">
+            <SpotDetails></SpotDetails>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
