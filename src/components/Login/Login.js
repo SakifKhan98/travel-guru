@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import googleIcon from "../../resources/icon/google.png";
 import fbIcon from "../../resources/icon/fb.png";
+import logo from "../../resources/logo.png";
 import "./Login.css";
 
 import Paper from "@material-ui/core/Paper";
@@ -58,11 +59,17 @@ export default function Login() {
       <Container className="loginContainer" component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
+          {/* <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
-          </Avatar>
+          </Avatar> */}
+          <img
+            style={{ width: "100px", paddingTop: "10px" }}
+            src={logo}
+            alt=""
+            srcSet=""
+          />
           <Typography component="h1" variant="h5">
-            Sign in
+            Login
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
@@ -98,7 +105,7 @@ export default function Login() {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Login
             </Button>
             <Grid container>
               <Grid item xs>
