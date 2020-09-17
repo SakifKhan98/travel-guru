@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="container">
       <Navbar className="mt-3" bg="transparent" variant="dark">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/home">
           <img id="logo" src={logo} alt="Travel Guru" srcSet="" />
         </Navbar.Brand>
         <Form inline>
@@ -21,16 +21,16 @@ const Header = () => {
           ></FormControl>
         </Form>
         <Nav>
-          <Nav.Link className="ml-5 " href="#home">
+          <Nav.Link className="ml-5 " href="/news">
             News
           </Nav.Link>
-          <Nav.Link className="ml-3" href="#features">
+          <Nav.Link className="ml-3" href="/destination">
             Destination
           </Nav.Link>
-          <Nav.Link className="ml-3" href="#pricing">
+          <Nav.Link className="ml-3" href="/blog">
             Blog
           </Nav.Link>
-          <Nav.Link className="ml-3" href="#pricing">
+          <Nav.Link className="ml-3" href="/contact">
             Contact
           </Nav.Link>
           {/* <Button className="ml-3  loginButton" variant="warning">
@@ -39,7 +39,9 @@ const Header = () => {
             </Nav.Link>
           </Button> */}
           <button className="ml-3  loginButton">
-            <Nav.Link className="loginButtonText">Login</Nav.Link>
+            <Nav.Link href="/login" className="loginButtonText">
+              Login
+            </Nav.Link>
           </button>
         </Nav>
       </Navbar>
