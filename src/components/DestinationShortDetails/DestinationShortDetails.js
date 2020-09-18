@@ -16,7 +16,7 @@ const DestinationShortDetails = () => {
         </small>
       </p>
       <button className="bookingButton">
-        <Nav.Link className="bookingButtonText">
+        <Nav.Link to="/destination/1" className="bookingButtonText">
           Booking{" "}
           <FontAwesomeIcon style={{ marginLeft: "10px" }} icon={faArrowRight} />
         </Nav.Link>

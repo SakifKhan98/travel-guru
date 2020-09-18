@@ -120,7 +120,7 @@ export default function Registration() {
   const onSubmit = (e) => {
     firebase
       .auth()
-      .createUserWithEmailAndPassword(e.name, e.email, e.password)
+      .createUserWithEmailAndPassword(e.email, e.password)
       .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;

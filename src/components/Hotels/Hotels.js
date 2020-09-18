@@ -41,7 +41,7 @@ const Hotels = () => {
           <Grid container spacing={2}>
             <Grid item>
               <ButtonBase className={classes.image}>
-                <img className={classes.img} alt="complex" src={hotel1} />
+                <img className={classes.img} alt="hotel1" src={hotel1} />
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>
@@ -84,7 +84,7 @@ const Hotels = () => {
           <Grid container spacing={2}>
             <Grid item>
               <ButtonBase className={classes.image}>
-                <img className={classes.img} alt="complex" src={hotel2} />
+                <img className={classes.img} alt="hotel2" src={hotel2} />
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>
@@ -108,7 +108,7 @@ const Hotels = () => {
                 </Grid>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1">$19.00</Typography>
+                <Typography variant="subtitle1">$19/night</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -120,7 +120,7 @@ const Hotels = () => {
           <Grid container spacing={2}>
             <Grid item>
               <ButtonBase className={classes.image}>
-                <img className={classes.img} alt="complex" src={hotel3} />
+                <img className={classes.img} alt="hotel3" src={hotel3} />
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>

@@ -11,7 +11,7 @@ const DestinationDetails = () => {
   const destination = fakeData.find(
     (pd) => pd.id.toString() === destinationId.toString()
   );
-  console.log(destination);
+  // console.log(destination);
   return (
     <div style={{ marginTop: "80px" }}>
       <Container>
@@ -23,7 +23,7 @@ const DestinationDetails = () => {
             </p>
           </Col>
           <Col>
-            <Booking></Booking>
+            <Booking destinationId={destinationId}></Booking>
           </Col>
         </Row>
       </Container>

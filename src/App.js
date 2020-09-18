@@ -33,14 +33,11 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          {/* <PrivateRoute path="/spotdetails">
+          <PrivateRoute path="/spotdetails/:id">
             <SpotDetails></SpotDetails>
-          </PrivateRoute> */}
+          </PrivateRoute>
           <Route path="/register">
             <Registration></Registration>
-          </Route>
-          <Route path="/spotdetails">
-            <SpotDetails></SpotDetails>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

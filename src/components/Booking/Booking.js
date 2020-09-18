@@ -21,7 +21,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Booking = () => {
+const Booking = (props) => {
+  const id = props.destinationId;
+  // console.log(id);
+
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2020-09-17T21:11:54")
   );
@@ -80,7 +83,7 @@ const Booking = () => {
           </Grid>
         </Grid>
       </MuiPickersUtilsProvider>
-      <Link to="/spotdetails">
+      <Link to={"/spotdetails/" + id}>
         <button className="innerBookingButton">Start Booking</button>
       </Link>
     </div>

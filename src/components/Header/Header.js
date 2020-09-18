@@ -5,14 +5,18 @@ import logo from "../../resources/logo-white.svg";
 
 import "./Header.css";
 import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="container">
       <Navbar className="mt-3" bg="transparent" variant="dark">
-        <Navbar.Brand href="/home">
-          <img id="logo" src={logo} alt="Travel Guru" srcSet="" />
-        </Navbar.Brand>
+        <Link to="/home">
+          <Navbar.Brand>
+            <img id="logo" src={logo} alt="Travel Guru" srcSet="" />
+          </Navbar.Brand>
+        </Link>
+
         <Form inline>
           <FormControl
             id="searchBar"
