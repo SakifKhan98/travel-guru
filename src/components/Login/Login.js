@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import { UserContext } from "../../App";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -18,6 +21,8 @@ import logo from "../../resources/logo.png";
 import "./Login.css";
 
 import Paper from "@material-ui/core/Paper";
+import firebaseConfig from "./firebase.config";
+import { useHistory, useLocation } from "react-router-dom";
 
 const socialStyles = makeStyles((theme) => ({
   root: {
@@ -51,8 +56,63 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
+
+  if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+  }
   const classes = useStyles();
   const socialClasses = socialStyles();
+
+  const provider = new firebase.auth.GoogleAuthProvider();
+  const fbProvider = new firebase.auth.FacebookAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (result) {
+        const { displayName, email } = result.user;
+        const signedInUser = { name: displayName, email };
+        setLoggedInUser(signedInUser);
+        history.replace(from);
+      })
+      .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+  };
+
+  const handleFbSignIn = () => {
+    firebase
+      .auth()
+      .signInWithPopup(fbProvider)
+      .then(function (result) {
+        const { displayName, email } = result.user;
+        const signedInUser = { name: displayName, email };
+        setLoggedInUser(signedInUser);
+        history.replace(from);
+      })
+      .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+  };
 
   return (
     <>
@@ -124,7 +184,7 @@ export default function Login() {
       </Container>
       <center>
         <h3 style={{ color: "white", marginTop: "15px" }}>Or</h3>
-        <button className="socialButton">
+        <button onClick={handleGoogleSignIn} className="socialButton">
           <div className={socialClasses.root}>
             <Grid
               direction="row"
@@ -143,7 +203,11 @@ export default function Login() {
           </div>
         </button>
         <br />
-        <button style={{ marginBottom: "20px" }} className="socialButton">
+        <button
+          onClick={handleFbSignIn}
+          style={{ marginBottom: "20px" }}
+          className="socialButton"
+        >
           <div className={socialClasses.root}>
             <Grid
               direction="row"

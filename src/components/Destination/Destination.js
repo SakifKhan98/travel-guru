@@ -3,7 +3,7 @@ import { fakeData } from "../../fakeData/fakeData";
 import DestinationCard from "../DestinationCard/DestinationCard";
 
 const Destination = () => {
-  console.log(fakeData);
+  // console.log(fakeData);
   const [destinations, setDestinations] = useState(fakeData);
 
   return (

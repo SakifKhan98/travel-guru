@@ -1,14 +1,17 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Hotels from "../Hotels/Hotels";
 
 const SpotDetails = () => {
   return (
     <Container>
       <Row>
         <Col>
-          <h1>This is Hotel Details</h1>
+          <Hotels></Hotels>
         </Col>
-        <Col>This is Google Map</Col>
+        <Col>
+          <h1>This is Google Map</h1>
+        </Col>
       </Row>
     </Container>
   );
