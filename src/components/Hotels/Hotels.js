@@ -9,8 +9,6 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 import hotel1 from "../../resources/image/rectangle26.png";
 import hotel2 from "../../resources/image/rectangle27.png";
 import hotel3 from "../../resources/image/rectangle28.png";
-import { fakeData } from "../../fakeData/fakeData";
-import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {

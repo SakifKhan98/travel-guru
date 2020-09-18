@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../resources/logo-white.svg";
 
 import "./Header.css";
+import { UserContext } from "../../App";
 
 const Header = () => {
   return (
@@ -33,11 +34,6 @@ const Header = () => {
           <Nav.Link className="ml-3" href="/contact">
             Contact
           </Nav.Link>
-          {/* <Button className="ml-3  loginButton" variant="warning">
-            <Nav.Link className="loginButtonText" href="#pricing">
-              Login
-            </Nav.Link>
-          </Button> */}
           <button className="ml-3  loginButton">
             <Nav.Link href="/login" className="loginButtonText">
               Login

@@ -23,6 +23,7 @@ import "./Login.css";
 import Paper from "@material-ui/core/Paper";
 import firebaseConfig from "./firebase.config";
 import { useHistory, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const socialStyles = makeStyles((theme) => ({
   root: {
@@ -114,14 +115,14 @@ export default function Login() {
       });
   };
 
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
     <>
       <Container className="loginContainer" component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          {/* <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar> */}
           <img
             style={{ width: "100px", paddingTop: "10px" }}
             src={logo}
@@ -131,10 +132,15 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <form className={classes.form} noValidate>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={classes.form}
+            noValidate
+          >
             <TextField
               variant="outlined"
               margin="normal"
+              inputRef={register}
               required
               fullWidth
               id="email"
@@ -146,6 +152,7 @@ export default function Login() {
             <TextField
               variant="outlined"
               margin="normal"
+              inputRef={register}
               required
               fullWidth
               name="password"
@@ -155,7 +162,14 @@ export default function Login() {
               autoComplete="current-password"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={
+                <Checkbox
+                  inputRef={register}
+                  name="remember"
+                  color="primary"
+                  defaultValue={false}
+                />
+              }
               label="Remember me"
             />
             <Button
