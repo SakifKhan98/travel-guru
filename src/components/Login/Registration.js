@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Registration() {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
@@ -120,7 +120,7 @@ export default function Login() {
   const onSubmit = (e) => {
     firebase
       .auth()
-      .signInWithEmailAndPassword(e.email, e.password)
+      .createUserWithEmailAndPassword(e.name, e.email, e.password)
       .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -141,13 +141,26 @@ export default function Login() {
             srcSet=""
           />
           <Typography component="h1" variant="h5">
-            Login
+            Sign up
           </Typography>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className={classes.form}
             noValidate
           >
+            <Grid item>
+              <TextField
+                autoComplete="fname"
+                name="name"
+                variant="outlined"
+                inputRef={register}
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                autoFocus
+              />
+            </Grid>
             <TextField
               variant="outlined"
               margin="normal"
@@ -172,17 +185,7 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  inputRef={register}
-                  name="remember"
-                  color="primary"
-                  defaultValue={false}
-                />
-              }
-              label="Remember me"
-            />
+
             <Button
               type="submit"
               fullWidth
@@ -190,17 +193,12 @@ export default function Login() {
               color="primary"
               className={classes.submit}
             >
-              Login
+              Sign Up
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
-                <Link href="/register" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/login" variant="body2">
+                  {"Already have an account? Sign In"}
                 </Link>
               </Grid>
             </Grid>

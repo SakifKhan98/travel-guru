@@ -8,6 +8,7 @@ import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SpotDetails from "./components/SpotDetails/SpotDetails";
+import Registration from "./components/Login/Registration";
 
 export const UserContext = createContext();
 
@@ -35,6 +36,9 @@ function App() {
           {/* <PrivateRoute path="/spotdetails">
             <SpotDetails></SpotDetails>
           </PrivateRoute> */}
+          <Route path="/register">
+            <Registration></Registration>
+          </Route>
           <Route path="/spotdetails">
             <SpotDetails></SpotDetails>
           </Route>
